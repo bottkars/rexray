@@ -13,13 +13,13 @@ The following is an example configuration of the ScaleIO driver.
 
 ```yaml
 scaleio:
-    endpoint:             https://domain.com/scalio
+    endpoint:             https://[scaleio gateway IP]:443/api
     insecure:             false
     useCerts:             true
-    userName:             admin
-    password:             mypassword
+    userName:             gatewayuser
+    password:             gatewaypassword
     systemID:             0
-    systemName:           sysv
+    systemName:           scaleio_systemname
     protectionDomainID:   0
     protectionDomainName: corp
     storagePoolID:        0
@@ -36,6 +36,25 @@ To activate the ScaleIO driver please follow the instructions for
 using `scaleio` as the driver name.
 
 ## Examples
+Below is a '/etc/rexray/config.yml'
+```yaml
+
+rexray:
+ storageDrivers:
+  - ScaleIO
+ScaleIO:
+  endpoint: https://192.168.2.193:443/api #<<- /API is mandatory here !
+  insecure: true
+  userName: admin
+  password: Password123!
+  systemName: ScaleIO@EMCDEBlog
+  protectionDomainName: PD_EMCDEBlog
+  storagePoolName: PoolEMCDEBlog
+```
+
+
+
+
 Below is a full `rexray.yml` file that works with ScaleIO.
 
 ```yaml
